@@ -66,6 +66,52 @@ section#top-section {
 section#basket {
   .basket-right {
     text-align: right;
+    position: relative;
+
+    .inner-basket {
+        display: none;
+      position: absolute;
+      right: 20px;
+      padding: 30px;
+      z-index: 2;
+      background: #ffffff;
+      border: 2px solid #eceef7;
+      box-sizing: border-box;
+      border-radius: 15px;
+      h4 {
+        text-align: left;
+        margin-bottom: 40px;
+      }
+      .basket-item {
+        .basket-item-name {
+          text-align: left;
+          max-width: 143px;
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+        .basket-item-size {
+          text-align: left;
+          font-size: 14px;
+        }
+        .basket-item-price {
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 57px;
+        }
+      }
+      .bottom-details {
+        .checkout-btn {
+          background: #fc4c4c;
+          border-radius: 14px;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 23px;
+          color: #ffffff;
+          padding: 19px 125px;
+          cursor: pointer;
+        }
+      }
+    }
     .basket-icon {
       cursor: pointer;
       width: 44px;
@@ -106,6 +152,8 @@ section#items {
       background: #ffffff;
       border: 2px solid #eceef7;
       cursor: pointer;
+      min-width: 226px;
+      min-height: 300px;
       &:hover {
         .item-bottom-icon {
           transform: scale(1.5);
@@ -117,22 +165,28 @@ section#items {
           }
         }
       }
+      & * {
+        cursor: pointer;
+      }
       .overlay {
-        transition: opacity 0.5s;
-        opacity: 0;
+        display: none;
         top: 11px;
         position: absolute;
         background: #ffffffe0;
         width: 100%;
         height: 85%;
-        .sizes{
-            padding: 10px 15px;
+        .sizes {
+          padding: 10px 15px;
         }
-        h4,.small,.medium,.big{
-            margin-bottom: 10px;
+        h4,
+        .small,
+        .medium,
+        .big {
+          margin-bottom: 10px;
         }
         .add-to-basket-btn {
-            margin-top: 20px;
+          cursor: pointer;
+          margin-top: 20px;
           background: linear-gradient(
               116.88deg,
               #fe3326 -4.28%,
@@ -172,6 +226,7 @@ section#items {
           font-weight: normal;
           font-size: 12px;
           line-height: 140%;
+          line-break: anywhere;
           color: #000000;
           margin-bottom: 19px;
         }
@@ -214,4 +269,7 @@ section#items {
       }
     }
   }
+}
+.active{
+    display: block!important;
 }
