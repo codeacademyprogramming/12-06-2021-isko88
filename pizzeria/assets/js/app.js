@@ -41,7 +41,7 @@ fetch("https://isko88.github.io/apipizza.json")
                   type="radio"
                   name="size-${radioid}"
                   id="small_size-${radioid}"
-                  value="small"
+                  value="small" checked
                 />
                 <label for="small_size-${radioid}">small - 20cm</label>
               </div>
@@ -80,7 +80,7 @@ fetch("https://isko88.github.io/apipizza.json")
       
     });
     setEvent();
-      basketbtn();
+    basketbtn();
   });
 
 function setEvent() {
@@ -127,12 +127,6 @@ btn.addEventListener("click",function(){
             document.querySelector("#bin").append(basketitem);
             }
         })
-        // document.querySelector(".inner-basket").innerHTML += `
-        // <div class="bottom-details">
-        //     <h4>Subtotal (4 Items)</h4>
-        //     <div class="total-price"><span></span></div>
-        //     <button class="checkout-btn">Checkout</button>
-        // </div>`
     })
 })
 });
