@@ -97,6 +97,7 @@ function basketbtn(){
 const addbasketbtns = document.querySelectorAll(".add-to-basket-btn");
 addbasketbtns.forEach(btn=>{
 btn.addEventListener("click",function(){
+
     const itemid = this.getAttribute("data-item-id");
     fetch("https://isko88.github.io/apipizza.json")
     .then(res=>res.json())
@@ -128,6 +129,8 @@ btn.addEventListener("click",function(){
             }
         })
     })
+    const subtotal = document.querySelectorAll(".basket-item").length+1;
+    document.querySelector("#subtotal").innerText = subtotal;
 })
 });
 }
