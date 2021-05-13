@@ -176,6 +176,7 @@ section#basket .basket-right .inner-basket .basket-item .basket-item-price {
   font-size: 20px;
   font-weight: 600;
   line-height: 57px;
+  margin-left: auto;
 }
 
 section#basket .basket-right .inner-basket .bottom-details .checkout-btn {

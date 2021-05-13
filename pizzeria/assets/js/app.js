@@ -77,9 +77,10 @@ fetch("https://isko88.github.io/apipizza.json")
         </div>`;
       product.innerHTML = item;
       document.querySelector("section#items .items .row").append(product);
-      setEvent();
-      basketbtn();
+      
     });
+    setEvent();
+      basketbtn();
   });
 
 function setEvent() {
@@ -93,10 +94,46 @@ function setEvent() {
 }
 
 function basketbtn(){
-const addbasketbtns = document.querySelectorAll("add-to-basket-btn");
+const addbasketbtns = document.querySelectorAll(".add-to-basket-btn");
 addbasketbtns.forEach(btn=>{
 btn.addEventListener("click",function(){
     const itemid = this.getAttribute("data-item-id");
+    fetch("https://isko88.github.io/apipizza.json")
+    .then(res=>res.json())
+    .then(json=>{
+        json.forEach(p=>{
+            if (p.id == itemid) {
+                const basketitem = document.createElement('div');
+                basketitem.classList.add("basket-item");
+                basketitem.innerHTML = `
+                <div class="row">
+                    <div class="basket-item-img">
+                        <img src="${p.image}" width="70px" height="70px" alt="">
+                  </div>
+                  <div class="basket-item-name-size">
+                    <div class="basket-item-name">
+                        <span>${p.name}</span>
+                    </div>
+                    <div class="basket-item-size">
+                        <span>size: small</span>
+                    </div>
+                </div>
+                <div class="basket-item-price">
+                    <span>${p.price}UAH</span>
+                </div>
+               
+            </div>
+            <hr>`;
+            document.querySelector("#bin").append(basketitem);
+            }
+        })
+        // document.querySelector(".inner-basket").innerHTML += `
+        // <div class="bottom-details">
+        //     <h4>Subtotal (4 Items)</h4>
+        //     <div class="total-price"><span></span></div>
+        //     <button class="checkout-btn">Checkout</button>
+        // </div>`
+    })
 })
 });
 }
