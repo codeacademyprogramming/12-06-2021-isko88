@@ -92,18 +92,32 @@ function setEvent() {
     });
   });
 }
-
+let stbasket = [];
 function basketbtn(){
 const addbasketbtns = document.querySelectorAll(".add-to-basket-btn");
 addbasketbtns.forEach(btn=>{
 btn.addEventListener("click",function(){
 
     const itemid = this.getAttribute("data-item-id");
+    stbasket.push(itemid)
+    localStorage.setItem("basketitems",stbasket);
+
+    fillbasket(itemid);
+    
+    const subtotal = document.querySelectorAll(".basket-item").length+1;
+    document.querySelector("#subtotal").innerText = subtotal;
+    
+})
+});
+}
+function fillbasket(itemid){
     fetch("https://isko88.github.io/apipizza.json")
     .then(res=>res.json())
     .then(json=>{
         json.forEach(p=>{
+            
             if (p.id == itemid) {
+
                 const basketitem = document.createElement('div');
                 basketitem.classList.add("basket-item");
                 basketitem.innerHTML = `
@@ -129,11 +143,17 @@ btn.addEventListener("click",function(){
             }
         })
     })
-    const subtotal = document.querySelectorAll(".basket-item").length+1;
-    document.querySelector("#subtotal").innerText = subtotal;
-})
-});
 }
 function setLocalStorage(){
-
+if (localStorage.basketitems) {
+    let itemids = localStorage.basketitems.split(",");
+    itemids.forEach(id=>{
+         document.querySelector("#bin").innerHTML = "";
+        fillbasket(id);
+    })
+    document.querySelector("#subtotal").innerText = itemids.length;
+    
 }
+}
+setLocalStorage()
+
