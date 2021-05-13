@@ -187,12 +187,43 @@ section#items .product .item {
 
 section#items .product .item:hover .item-bottom-icon {
   transform: scale(1.5);
-  background: linear-gradient(287.74deg, #F58656 8.52%, #FE5626 92.72%), linear-gradient(180deg, #FE5626 0%, #F23F0E 100%), #59AAF1 !important;
+  background: linear-gradient(287.74deg, #f58656 8.52%, #fe5626 92.72%), linear-gradient(180deg, #fe5626 0%, #f23f0e 100%), #59aaf1 !important;
   box-shadow: 0px 4px 8px rgba(205, 71, 41, 0.26);
 }
 
 section#items .product .item:hover .item-bottom-icon img {
   filter: brightness(5);
+}
+
+section#items .product .item .overlay {
+  transition: opacity 0.5s;
+  opacity: 0;
+  top: 11px;
+  position: absolute;
+  background: #ffffffe0;
+  width: 100%;
+  height: 85%;
+}
+
+section#items .product .item .overlay .sizes {
+  padding: 10px 15px;
+}
+
+section#items .product .item .overlay h4, section#items .product .item .overlay .small, section#items .product .item .overlay .medium, section#items .product .item .overlay .big {
+  margin-bottom: 10px;
+}
+
+section#items .product .item .overlay .add-to-basket-btn {
+  margin-top: 20px;
+  background: linear-gradient(116.88deg, #fe3326 -4.28%, #f26e0e 112.69%), #59aaf1;
+  box-shadow: 0px 4px 8px rgba(205, 71, 41, 0.26);
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 140%;
+  padding: 5px 20px;
+  text-align: center;
+  color: #ffffff;
 }
 
 section#items .product .item .item-img {
